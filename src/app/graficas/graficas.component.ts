@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Paquete } from '../paquetes';
+//import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-graficas',

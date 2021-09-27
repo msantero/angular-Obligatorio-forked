@@ -199,8 +199,7 @@ export class DashboardComponent implements OnInit {
 
   cantidad_paquetes(ventas: VentaPaquete[]) {
     console.log('Obtengo cantidad paquetes vendidos...');
-    //let groupedVentas = this.groupArrayOfObjects(ventas, 'idPaquete');
-    //Array.from(groupedVentas.entries())
+
     let idpaquetes: number[];
     ventas.forEach((venta) => {
       idpaquetes.forEach((paq) => {
@@ -217,15 +216,18 @@ export class DashboardComponent implements OnInit {
     paquetes.forEach((paq) => {
       let frs = ventas.filter((element) => element.id_paquete === paq.id);
       var cantidad = 0;
+      var cantventas = 0;
 
       frs.forEach((element) => {
         cantidad += element.cantidad_mayores + element.cantidad_menores;
+        cantventas++;
       });
 
       let ventapaquete = {
         id_paquete: paq.id,
         cantidad: cantidad,
         nombre: paq.nombre,
+        cantidad_ventas: cantventas
       };
 
       paq.id != 0 ? this.PaqueteCantPersonas.push(ventapaquete) : ''; //porque el primero es choose one

@@ -16,6 +16,7 @@ export interface PaqueteCantPersonas {
   id_paquete: number;
   nombre: string;
   cantidad: number;
+  cantidad_ventas: number;
   /*
   constructor(private id_: number, private nombre_: string) {
      this.id = id_;
