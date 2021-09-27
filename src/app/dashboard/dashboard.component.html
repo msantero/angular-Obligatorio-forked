@@ -196,7 +196,6 @@
 </div>
 
 <!--Grid column-->
-<!--Grid column-->
 <div class="col-lg-3 col-md-10 mb-3">
   <table
     class="table table-striped table-dark table-bordered table-hover table-sm"
@@ -215,6 +214,29 @@
         <p *ngIf="pcantv.cantidad_ventas > 3">
           <td>{{ pcantv.nombre }}</td>
           <td>{{ pcantv.cantidad_ventas }}</td>
+        </p>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--Grid column-->
+<div class="col-lg-3 col-md-10 mb-3">
+  <table
+    class="table table-striped table-dark table-bordered table-hover table-sm"
+  >
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Destinos SIN VENTAS:</th>
+      </tr>
+      <tr>
+        <th scope="col">Destinos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pcantsin of PaqueteCantPersonas; let i = index">
+        <p *ngIf="pcantsin.cantidad_ventas === 0">
+          <td>{{ pcantsin.nombre }}</td>
         </p>
       </tr>
     </tbody>
