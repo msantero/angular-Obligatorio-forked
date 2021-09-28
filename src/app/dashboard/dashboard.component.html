@@ -1,20 +1,19 @@
 <body>
-  <div id="contenedor">
-    <div id="">
-      <div class="container my-4">
-        <p class="font-weight-bold"></p>
+  <div id="">
+    <div>
+      <p class="font-weight-bold"></p>
 
-        <p><strong>Dashboard </strong></p>
-
+      <p class="titulo1"><strong>Dashboard </strong></p>
+      <div>
         <hr />
 
-        <p class="font-weight-bold">Vendedor: {{ nombre_vendedor }}</p>
+        <p class="titulo2">Vendedor: {{ nombre_vendedor }}</p>
 
         <!--Grid row-->
         <div class="row">
           <!--Grid column-->
-          <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
+          <div class="">
+            <div id="card">
               <div class="card-body">
                 <form [formGroup]="venderGroup" (ngSubmit)="vender()">
                   <label>Cliente:</label>
@@ -29,6 +28,7 @@
 
                   <label>Cant. adultos</label>
                   <input
+                    class="inputnumber"
                     type="number"
                     id="adultos"
                     name="adultos"
@@ -39,6 +39,7 @@
                   />
                   <label>Cant. niños</label>
                   <input
+                    class="inputnumber"
                     type="number"
                     id="ninos"
                     name="ninos"
@@ -48,39 +49,39 @@
                   />
 
                   <!--
-          <input
-            type="text"
-            id="paquete_sel"
-            name="paquete_sel"
-            formControlName="paquete_sel"
-            value="{{ paquete?.id }}"
-            type="hidden"
-            readonly
-          /><br /><br />
-          -->
+                  <input
+                    type="text"
+                    id="paquete_sel"
+                    name="paquete_sel"
+                    formControlName="paquete_sel"
+                    value="{{ paquete?.id }}"
+                    type="hidden"
+                    readonly
+                  /><br /><br />
+                  -->
 
                   <!--
-          <ul>
-            <li *ngFor="let item of seleccionados" formControlName="paquete_sel">
-              {{item.nombre}}
-            </li>
-          </ul>
-          -->
+                  <ul>
+                    <li *ngFor="let item of seleccionados" formControlName="paquete_sel">
+                      {{item.nombre}}
+                    </li>
+                  </ul>
+                  -->
                   <!--
-          <p>
-            <label>Paquetes</label>
-            <select
-              name="paquetes"
-              [(ngModel)]="paquete"
-              [ngModelOptions]="{ standalone: true }"
-            >
-              <option [ngValue]="item" *ngFor="let item of paquetes">
-                {{ item.nombre }}
-              </option>
-            </select>
-            <label>Seleccionado: {{ paquete?.nombre }}</label>
-          </p>
-          -->
+                  <p>
+                    <label>Paquetes</label>
+                    <select
+                      name="paquetes"
+                      [(ngModel)]="paquete"
+                      [ngModelOptions]="{ standalone: true }"
+                    >
+                      <option [ngValue]="item" *ngFor="let item of paquetes">
+                        {{ item.nombre }}
+                      </option>
+                    </select>
+                    <label>Seleccionado: {{ paquete?.nombre }}</label>
+                  </p>
+                  -->
                   <p>
                     <select
                       name="paquetes"
@@ -183,9 +184,7 @@
             <div class="card">
               <div class="card-header">
                 <tr>
-                  <th scope="col">
-                    Gráfica de precios (promedio) por destino:
-                  </th>
+                  <th>Gráfica de precios (promedio) por destino:</th>
                 </tr>
               </div>
               <tbody>
@@ -201,60 +200,60 @@
           </div>
         </div>
 
-        <!--Grid row-->
-        <app-graficas [paquetes]="paquetes"> </app-graficas>
-      </div>
+        <br />
 
-      <!--Grid column-->
-      <div class="col-lg-3 col-md-10 mb-3">
-        <table
-          class="
-            table table-striped table-dark table-bordered table-hover table-sm
-          "
-        >
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Destinos TOP:</th>
-            </tr>
-            <tr>
-              <th scope="col" class="datos">Destinos</th>
-              <th scope="col" class="datos">Cant. ventas</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let pcantv of PaqueteCantPersonas">
-              <p *ngIf="pcantv.cantidad_ventas > 3">
-                <td>{{ pcantv.nombre }}</td>
-                <td>{{ pcantv.cantidad_ventas }}</td>
-              </p>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <!--<app-graficas [paquetes]="paquetes"> </app-graficas>-->
 
-      <!--Grid column-->
-      <div class="col-lg-3 col-md-10 mb-3">
-        <table
-          class="
-            table table-striped table-dark table-bordered table-hover table-sm
-          "
-        >
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Destinos SIN VENTAS:</th>
-            </tr>
-            <tr>
-              <th scope="col">Destinos</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let pcantsin of PaqueteCantPersonas; let i = index">
-              <p *ngIf="pcantsin.cantidad_ventas === 0">
-                <td>{{ pcantsin.nombre }}</td>
-              </p>
-            </tr>
-          </tbody>
-        </table>
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-10 mb-3">
+          <table
+            class="
+              table table-striped table-dark table-bordered table-hover table-sm
+            "
+          >
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Destinos TOP:</th>
+              </tr>
+              <tr>
+                <th scope="col">Destinos</th>
+                <th scope="col">Cant. ventas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pcantv of PaqueteCantPersonas">
+                <p *ngIf="pcantv.cantidad_ventas > 3">
+                  <td>{{ pcantv.nombre }}</td>
+                  <td>{{ pcantv.cantidad_ventas }}</td>
+                </p>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <br />
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-10 mb-3">
+          <table
+            class="
+              table table-striped table-dark table-bordered table-hover table-sm
+            "
+          >
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Destinos SIN VENTAS:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pcantsin of PaqueteCantPersonas; let i = index">
+                <p *ngIf="pcantsin.cantidad_ventas === 0">
+                  <td>{{ pcantsin.nombre }}</td>
+                </p>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

@@ -23,34 +23,33 @@ export class GraficasComponent implements OnInit {
 
   ngOnInit() {}
 
-  
-// Write TypeScript code!
- ctx = document.getElementById("myChart") as HTMLCanvasElement;
- myChart = new Chart(this.ctx, {
-  type: "doughnut",
-  data: {
-    labels: ["green", "yellow", "green", "purple", "blue"],
-    datasets: [
-      {
-        weight: 0,
-        data: [50, 805, 50, 600, 200],
-        backgroundColor: ["green", "yellow", "green", "purple", "blue"]
-      },
-      {
-        weight: 1,
-        data: [50, 805],
-        backgroundColor: ["green", "yellow"],
-        borderColor: ctx => {
-          console.log(ctx.dataIndex);
-          return ctx.dataIndex === 0 ? "green" : "rgba(255, 255, 255, 1)";
+  // Write TypeScript code!
+  ctx = document.getElementById('myChart') as HTMLCanvasElement;
+  myChart = new Chart(this.ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['green', 'yellow', 'green', 'purple', 'blue'],
+      datasets: [
+        {
+          weight: 0,
+          data: [50, 805, 50, 600, 200],
+          backgroundColor: ['green', 'yellow', 'green', 'purple', 'blue'],
         },
-        borderCapStyle: "round",
-        borderWidth: ctx => {
-          return this.BORDER_WIDTH;
+        {
+          weight: 1,
+          data: [50, 805],
+          backgroundColor: ['green', 'yellow'],
+          borderColor: (ctx) => {
+            console.log(ctx.dataIndex);
+            return ctx.dataIndex === 0 ? 'green' : 'rgba(255, 255, 255, 1)';
+          },
+          borderCapStyle: 'round',
+          borderWidth: (ctx) => {
+            return this.BORDER_WIDTH;
+          },
+          // labels: ["green", "yellow"]
         },
-       // labels: ["green", "yellow"]
-      },
-      {
+        /* {
         weight: 1,
         data: [50, 600, 200],
         backgroundColor: ["green", "purple", "blue"],
@@ -61,30 +60,29 @@ export class GraficasComponent implements OnInit {
         borderCapStyle: "round",
         borderWidth: this.BORDER_WIDTH,
         //labels: ["green", "purple", "blue"]
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    cutoutPercentage: 15,
-    circumference: 2 * Math.PI,
-    legend: {
-      display: true,
-      onClick: null
+      }*/
+      ],
     },
-    tooltips: {
-      callbacks: {
-        label: function(tooltipItem, data) {
-          var dataset = data.datasets[tooltipItem.datasetIndex];
-          var arcIndex = tooltipItem.index;
-          return dataset.labels[arcIndex] + ": " + dataset.data[arcIndex];
-        }
-      }
-    }
-    // legendCallback: function(chart) {
-    //   return "<p>Something</p>";
-    // }
-  }
-
-});
+    options: {
+      responsive: true,
+      cutoutPercentage: 15,
+      circumference: 2 * Math.PI,
+      legend: {
+        display: true,
+        onClick: null,
+      },
+      tooltips: {
+        callbacks: {
+          label: function (tooltipItem, data) {
+            var dataset = data.datasets[tooltipItem.datasetIndex];
+            var arcIndex = tooltipItem.index;
+            return dataset.labels[arcIndex] + ': ' + dataset.data[arcIndex];
+          },
+        },
+      },
+      // legendCallback: function(chart) {
+      //   return "<p>Something</p>";
+      // }
+    },
+  });
 }
