@@ -47,7 +47,7 @@ export class GraficasComponent implements OnInit {
           borderWidth: (ctx) => {
             return this.BORDER_WIDTH;
           },
-          // labels: ["green", "yellow"]
+          //labels: ["green", "yellow"]
         },
         /* {
         weight: 1,
