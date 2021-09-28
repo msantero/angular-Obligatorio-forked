@@ -15,7 +15,6 @@ import { VentaService } from '../ventas.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  nombre_vendedor = this.userService.getUserNombre();
   cant: Number;
   msg: string;
   cantPaquetesPersonas: number;
@@ -28,6 +27,7 @@ export class DashboardComponent implements OnInit {
   ventas: VentaResponse[] = [];
   Paquetes_Vendedor: VentaPaquete[] = [];
   PaqueteCantPersonas: PaqueteCantPersonas[] = [];
+  nombre_vendedor: string;
 
   venderGroup: FormGroup;
   constructor(
@@ -45,6 +45,8 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.nombre_vendedor = this.userService.getUserNombre();
+
     this.obtener_paquetes();
     this.obtener_ventas(this.userService.getUserId());
     //this.obtener_PaquetesyVentas_Vendedor(this.ventas, this.paquetes);

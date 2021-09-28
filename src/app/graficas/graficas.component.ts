@@ -10,7 +10,7 @@ import { Chart } from 'chart.js';
 export class GraficasComponent implements OnInit {
   @Input() paquetes!: Paquete[];
 
-  firstDataset: Chart.ChartDataSets = {};
+  //firstDataset: Chart.ChartDataSets = {};
   BORDER_WIDTH = 3;
 
   GREEN = '#00c77d';
@@ -43,7 +43,7 @@ export class GraficasComponent implements OnInit {
             console.log(ctx.dataIndex);
             return ctx.dataIndex === 0 ? 'green' : 'rgba(255, 255, 255, 1)';
           },
-          borderCapStyle: 'round',
+          //borderCapStyle: 'round',
           borderWidth: (ctx) => {
             return this.BORDER_WIDTH;
           },
@@ -65,13 +65,13 @@ export class GraficasComponent implements OnInit {
     },
     options: {
       responsive: true,
-      cutoutPercentage: 15,
+      //cutoutPercentage: 15,
       circumference: 2 * Math.PI,
-      legend: {
+      /*legend: {
         display: true,
         onClick: null,
-      },
-      tooltips: {
+      },*/
+      /*tooltips: {
         callbacks: {
           label: function (tooltipItem, data) {
             var dataset = data.datasets[tooltipItem.datasetIndex];
@@ -79,7 +79,7 @@ export class GraficasComponent implements OnInit {
             return dataset.labels[arcIndex] + ': ' + dataset.data[arcIndex];
           },
         },
-      },
+      },*/
       // legendCallback: function(chart) {
       //   return "<p>Something</p>";
       // }
