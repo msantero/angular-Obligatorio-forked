@@ -1,6 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Paquete } from '../paquetes';
-import { Chart } from 'chart.js';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Paquete, PaqueteCantPersonas } from '../paquetes';
+import {
+  ChartComponent,
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexXAxis,
+  ApexTitleSubtitle,
+} from 'ng-apexcharts';
+
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  title: ApexTitleSubtitle;
+};
 
 @Component({
   selector: 'app-graficas',
@@ -8,81 +21,36 @@ import { Chart } from 'chart.js';
   styleUrls: ['./graficas.component.css'],
 })
 export class GraficasComponent implements OnInit {
-  @Input() paquetes!: Paquete[];
+  @Input() paquetes!: PaqueteCantPersonas[];
 
-  //firstDataset: Chart.ChartDataSets = {};
-  BORDER_WIDTH = 3;
+  //paquetesgrafica: Paquete[] | any;
 
-  GREEN = '#00c77d';
-  BLUE = '#56ccf2';
-  VIOLET = '#bc35fb';
-  BLUE_VIOLET = '#8c90fc';
-  ORANGE = '#f2b94a';
+  @ViewChild('chart') chart!: ChartComponent;
+  public chartOptions!: Partial<ChartOptions> | any;
 
-  constructor() {}
+  paquetesnombre = this.paquetes.map((paq) => paq.nombre);
+  paquetescantventas = this.paquetes.map((paq) => paq.nombre);
+
+  constructor() {
+    this.chartOptions = {
+      series: [
+        {
+          name: 'Cantidad',
+          data: this.paquetescantventas,
+        },
+      ],
+      chart: {
+        height: 250,
+        type: 'bar',
+      },
+      title: {
+        text: 'Gráfica de Columnas',
+      },
+      xaxis: {
+        categories: this.paquetesnombre,
+      },
+    };
+  }
 
   ngOnInit() {}
-
-  // Write TypeScript code!
-  ctx = document.getElementById('myChart') as HTMLCanvasElement;
-  myChart = new Chart(this.ctx, {
-    type: 'doughnut',
-    data: {
-      labels: ['green', 'yellow', 'green', 'purple', 'blue'],
-      datasets: [
-        {
-          weight: 0,
-          data: [50, 805, 50, 600, 200],
-          backgroundColor: ['green', 'yellow', 'green', 'purple', 'blue'],
-        },
-        {
-          weight: 1,
-          data: [50, 805],
-          backgroundColor: ['green', 'yellow'],
-          borderColor: (ctx) => {
-            console.log(ctx.dataIndex);
-            return ctx.dataIndex === 0 ? 'green' : 'rgba(255, 255, 255, 1)';
-          },
-          //borderCapStyle: 'round',
-          borderWidth: (ctx) => {
-            return this.BORDER_WIDTH;
-          },
-          //labels: ["green", "yellow"]
-        },
-        /* {
-        weight: 1,
-        data: [50, 600, 200],
-        backgroundColor: ["green", "purple", "blue"],
-        borderColor: ctx => {
-          console.log(ctx.dataIndex);
-          return ctx.dataIndex === 0 ? "green" : "rgba(255, 255, 255, 1)";
-        },
-        borderCapStyle: "round",
-        borderWidth: this.BORDER_WIDTH,
-        //labels: ["green", "purple", "blue"]
-      }*/
-      ],
-    },
-    options: {
-      responsive: true,
-      //cutoutPercentage: 15,
-      circumference: 2 * Math.PI,
-      /*legend: {
-        display: true,
-        onClick: null,
-      },*/
-      /*tooltips: {
-        callbacks: {
-          label: function (tooltipItem, data) {
-            var dataset = data.datasets[tooltipItem.datasetIndex];
-            var arcIndex = tooltipItem.index;
-            return dataset.labels[arcIndex] + ': ' + dataset.data[arcIndex];
-          },
-        },
-      },*/
-      // legendCallback: function(chart) {
-      //   return "<p>Something</p>";
-      // }
-    },
-  });
 }

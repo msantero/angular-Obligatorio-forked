@@ -6,7 +6,12 @@
       </tr>
     </div>
     <tbody>
-      <canvas id="myChart" width="300" height="300"></canvas>
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [title]="chartOptions.title"
+      ></apx-chart>
     </tbody>
     <div class="card-body"></div>
   </div>

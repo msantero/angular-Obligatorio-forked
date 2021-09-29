@@ -13,6 +13,7 @@ import { GraficasComponent } from './graficas/graficas.component';
 
 import { UsuarioAlertsComponent } from './usuario-alerts/usuario-alerts.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   imports: [
@@ -20,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    NgApexchartsModule,
+    GraficasComponent,
     RouterModule.forRoot([
       { path: '', component: LoginComponent },
       { path: 'login', component: LoginComponent },
