@@ -6,6 +6,7 @@ import {
   ViewChild,
   EventEmitter,
 } from '@angular/core';
+
 import { Paquete, PaqueteCantPersonas } from '../paquetes';
 import {
   ChartComponent,
@@ -23,11 +24,11 @@ export type ChartOptions = {
 };
 
 @Component({
-  selector: 'app-graficas',
-  templateUrl: './graficas.component.html',
-  styleUrls: ['./graficas.component.css'],
+  selector: 'app-graficasv2',
+  templateUrl: './graficasv2.component.html',
+  styleUrls: ['./graficasv2.component.css'],
 })
-export class GraficasComponent implements OnInit {
+export class Graficasv2Component implements OnInit {
   @Input() paquetes!: PaqueteCantPersonas[];
   @Output() notify = new EventEmitter();
   //paquetesgrafica: Paquete[] | any;

@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GraficasComponent } from './graficas/graficas.component';
+import { Graficasv2Component } from './graficasv2/graficasv2.component';
 
 import { UsuarioAlertsComponent } from './usuario-alerts/usuario-alerts.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,12 +24,14 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     HttpClientModule,
     NgApexchartsModule,
     GraficasComponent,
+    Graficasv2Component,
     RouterModule.forRoot([
       { path: '', component: LoginComponent },
       { path: 'login', component: LoginComponent },
       { path: 'registro', component: RegistroComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'dashboard/:id', component: DashboardComponent },
+      { path: 'graficas', component: GraficasComponent },
       //  { path: '', component: ProductListComponent },
       //  { path: 'product/:productId', component: ProductDetailComponent },
     ]),
@@ -40,6 +43,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     DashboardComponent,
     UsuarioAlertsComponent,
     GraficasComponent,
+    Graficasv2Component,
   ],
   bootstrap: [AppComponent],
 })
