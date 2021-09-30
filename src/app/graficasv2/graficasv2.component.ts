@@ -36,18 +36,18 @@ export class Graficasv2Component implements OnInit {
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions> | any;
 
+  // paquetesnombre = this.paquetes.map((p) => p.nombre);
+
+  // paquetescantventas = this.paquetes.map((p) => p.cantidad_ventas);
+
   //paquetesnombre: string[] = [];
 
   constructor() {
-    let paquetesnombre = this.paquetes.map((paq) => paq.nombre);
-    console.log(paquetesnombre);
-    let paquetescantventas = this.paquetes.map((paq) => paq.cantidad_ventas);
-
     this.chartOptions = {
       series: [
         {
           name: 'Cantidad',
-          data: [1,2],
+          data: [1, 2],
           //data: this.paquetescantventas,
         },
       ],
@@ -59,11 +59,13 @@ export class Graficasv2Component implements OnInit {
         text: 'Gráfica de Destinos',
       },
       xaxis: {
-        categories: ["verde","rojo"],
+        categories: ['verde', 'rojo'],
         //categories: this.paquetesnombre,
       },
     };
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('Paquetes al inicializar oninit: ' + this.paquetes);
+  }
 }
