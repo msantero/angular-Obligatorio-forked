@@ -40,7 +40,6 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     RegistroComponent,
     DashboardComponent,
     UsuarioAlertsComponent,
-    NgApexchartsModule,
     Graficasv2Component,
   ],
   bootstrap: [AppComponent],
