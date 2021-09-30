@@ -38,15 +38,16 @@ export class Graficasv2Component implements OnInit {
 
   //paquetesnombre: string[] = [];
 
-  paquetesnombre = this.paquetes.map((paq) => paq.nombre);
-  paquetescantventas = this.paquetes.map((paq) => paq.cantidad_ventas);
-
   constructor() {
+    let paquetesnombre = this.paquetes.map((paq) => paq.nombre);
+    console.log(paquetesnombre);
+    let paquetescantventas = this.paquetes.map((paq) => paq.cantidad_ventas);
+
     this.chartOptions = {
       series: [
         {
           name: 'Cantidad',
-          data: this.paquetescantventas,
+          data: [1,2],
           //data: this.paquetescantventas,
         },
       ],
@@ -58,7 +59,7 @@ export class Graficasv2Component implements OnInit {
         text: 'Gráfica de Destinos',
       },
       xaxis: {
-        categories: this.paquetesnombre,
+        categories: ["verde","rojo"],
         //categories: this.paquetesnombre,
       },
     };
