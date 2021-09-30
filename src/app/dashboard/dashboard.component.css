@@ -190,11 +190,10 @@ body {
 }
 
 #datos {
-    font-size: 90%;
-    text-align: center;
-    display: block;
-    text-decoration: none;
-    color: #bbe1fa;
-    margin-bottom: 3px;
-  }
+  font-size: 90%;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: #bbe1fa;
+  margin-bottom: 3px;
 }

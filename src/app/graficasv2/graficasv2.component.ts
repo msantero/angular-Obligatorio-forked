@@ -44,7 +44,8 @@ export class Graficasv2Component implements OnInit {
       series: [
         {
           name: 'Cantidad',
-          data: this.paquetescantventas,
+          data: [10, 41, 35, 51, 49],
+          //data: this.paquetescantventas,
         },
       ],
       chart: {
@@ -52,10 +53,11 @@ export class Graficasv2Component implements OnInit {
         type: 'bar',
       },
       title: {
-        text: 'Gráfica de Columnas',
+        text: 'Gráfica de Destinos',
       },
       xaxis: {
-        categories: this.paquetesnombre,
+        categories: ['Verde', 'Rojo'],
+        //categories: this.paquetesnombre,
       },
     };
   }
