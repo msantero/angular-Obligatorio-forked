@@ -36,6 +36,8 @@ export class Graficasv2Component implements OnInit {
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions> | any;
 
+  //paquetesnombre: string[] = [];
+
   paquetesnombre = this.paquetes.map((paq) => paq.nombre);
   paquetescantventas = this.paquetes.map((paq) => paq.cantidad_ventas);
 
@@ -44,7 +46,7 @@ export class Graficasv2Component implements OnInit {
       series: [
         {
           name: 'Cantidad',
-          data: [10, 41, 35, 51, 49],
+          data: this.paquetescantventas,
           //data: this.paquetescantventas,
         },
       ],
@@ -56,7 +58,7 @@ export class Graficasv2Component implements OnInit {
         text: 'Gráfica de Destinos',
       },
       xaxis: {
-        categories: ['Verde', 'Rojo'],
+        categories: this.paquetesnombre,
         //categories: this.paquetesnombre,
       },
     };
