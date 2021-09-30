@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-//import { Graficasv2Component } from './graficasv2/graficasv2.component';
+import { Graficasv2Component } from './graficasv2/graficasv2.component';
 
 import { UsuarioAlertsComponent } from './usuario-alerts/usuario-alerts.component';
 import { HttpClientModule } from '@angular/common/http';
