@@ -21,8 +21,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    Graficasv2Component,
     NgApexchartsModule,
-    //Graficasv2Component,
     RouterModule.forRoot([
       { path: '', component: LoginComponent },
       { path: 'login', component: LoginComponent },
@@ -40,7 +40,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     RegistroComponent,
     DashboardComponent,
     UsuarioAlertsComponent,
-    //Graficasv2Component,
+    NgApexchartsModule,
+    Graficasv2Component,
   ],
   bootstrap: [AppComponent],
 })
