@@ -21,7 +21,7 @@ import { Graficasv2Component } from './graficasv2/graficasv2.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    Graficasv2Component,
+    //Graficasv2Component,
     NgApexchartsModule,
     RouterModule.forRoot([
       { path: '', component: LoginComponent },
