@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,8 @@ import { Venta, VentaPaquete, VentaResponse } from '../ventas';
 import { UserService } from '../user.service';
 import { PaqueteService } from '../paquetes.service';
 import { VentaService } from '../ventas.service';
+
+import { Graficasv2Component } from '../graficasv2/graficasv2.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,6 +30,9 @@ export class DashboardComponent implements OnInit {
   Paquetes_Vendedor: VentaPaquete[] = [];
   PaqueteCantPersonas: PaqueteCantPersonas[] = [];
   nombre_vendedor: string;
+
+  @ViewChild('datosDesdeElPadre', { static: false })
+  datosDesdeElPadre: Graficasv2Component;
 
   venderGroup: FormGroup;
   constructor(
@@ -84,6 +89,7 @@ export class DashboardComponent implements OnInit {
           this.ventas = this.ventaService.ventas;
           //cargo datos del dashboard
           this.obtener_PaquetesyVentas_Vendedor(this.ventas, this.paquetes);
+          this.datosDesdeElPadre.estollegadelpadre = this.Paquetes_Vendedor;
           //this.cantidad_paquetes(this.Paquetes_Vendedor);
           this.obtener_personas_destino(this.paquetes, this.ventas);
         },

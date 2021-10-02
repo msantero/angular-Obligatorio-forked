@@ -8,6 +8,8 @@ import {
 } from '@angular/core';
 
 import { Paquete, PaqueteCantPersonas } from '../paquetes';
+import { VentaPaquete, VentaResponse } from '../ventas';
+
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -29,7 +31,12 @@ export type ChartOptions = {
   styleUrls: ['./graficasv2.component.css'],
 })
 export class Graficasv2Component implements OnInit {
-  @Input() paquetes!: PaqueteCantPersonas[];
+  @Input() PaqueteCantPersonas!: PaqueteCantPersonas[];
+  @Input() paquetes!: Paquete[];
+  @Input() ventas: VentaResponse[];
+
+  estollegadelpadre: VentaPaquete[] = [];
+
   @Output() notify = new EventEmitter();
   //paquetesgrafica: Paquete[] | any;
 
@@ -66,6 +73,9 @@ export class Graficasv2Component implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Paquetes al inicializar oninit: ' + this.paquetes);
+    console.log(
+      'Paquetes al inicializar oninit: ' +
+        JSON.stringify(this.estollegadelpadre)
+    );
   }
 }
