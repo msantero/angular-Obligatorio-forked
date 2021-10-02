@@ -41,10 +41,12 @@ export class Graficasv2Component implements OnInit {
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions> | any;
 
+  /*
   paquetesnombre = this.PaqueteCantPersonas.map((p) => p.nombre);
   paquetescantventas = this.PaqueteCantPersonas.map((p) => p.cantidad_ventas);
+*/
 
-  //paquetesnombre: string[] = [];
+  @Input() prueba: string[];
 
   constructor() {
     this.chartOptions = {
@@ -63,7 +65,7 @@ export class Graficasv2Component implements OnInit {
         text: 'Gráfica de Destinos',
       },
       xaxis: {
-        categories: ['verde', 'rojo'],
+        categories: this.prueba,
         //categories: this.paquetesnombre,
       },
     };
@@ -82,8 +84,7 @@ export class Graficasv2Component implements OnInit {
 
   ngAfterContentChecked() {
     console.log(
-      'Paquetes al afterviewchequed : ' +
-        JSON.stringify(this.PaqueteCantPersonas)
+      'Paquetes al afterviewchequed : ' + JSON.stringify(this.prueba)
     );
   }
 }

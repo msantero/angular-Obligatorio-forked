@@ -34,6 +34,8 @@ export class DashboardComponent implements OnInit {
   // @ViewChild('datosDesdeElPadre', { static: false })
   // datosDesdeElPadre: Graficasv2Component;
 
+  prueba: string[] = [];
+
   venderGroup: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
@@ -89,8 +91,11 @@ export class DashboardComponent implements OnInit {
           this.ventas = this.ventaService.ventas;
           //cargo datos del dashboard
           this.obtener_PaquetesyVentas_Vendedor(this.ventas, this.paquetes);
+
+          this.prueba = ['221', '233'];
           // this.datosDesdeElPadre.estollegadelpadre = this.Paquetes_Vendedor;
           //this.cantidad_paquetes(this.Paquetes_Vendedor);
+
           this.obtener_personas_destino(this.paquetes, this.ventas);
         },
         ({ error: { mensaje } }) => {
