@@ -32,10 +32,8 @@ export type ChartOptions = {
 })
 export class Graficasv2Component implements OnInit {
   @Input() PaqueteCantPersonas!: PaqueteCantPersonas[];
-  @Input() paquetes!: Paquete[];
-  @Input() ventas: VentaResponse[];
 
-  estollegadelpadre: VentaPaquete[] = [];
+  //  @Input() estollegadelpadre: VentaPaquete[] = [];
 
   @Output() notify = new EventEmitter();
   //paquetesgrafica: Paquete[] | any;
@@ -43,9 +41,8 @@ export class Graficasv2Component implements OnInit {
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions> | any;
 
-  // paquetesnombre = this.paquetes.map((p) => p.nombre);
-
-  // paquetescantventas = this.paquetes.map((p) => p.cantidad_ventas);
+  paquetesnombre = this.PaqueteCantPersonas.map((p) => p.nombre);
+  paquetescantventas = this.PaqueteCantPersonas.map((p) => p.cantidad_ventas);
 
   //paquetesnombre: string[] = [];
 
@@ -54,8 +51,8 @@ export class Graficasv2Component implements OnInit {
       series: [
         {
           name: 'Cantidad',
-          data: [1, 2],
-          //data: this.paquetescantventas,
+          //data: this.PaqueteCantPersonas,
+          data: [1, 2, 3],
         },
       ],
       chart: {
@@ -74,8 +71,19 @@ export class Graficasv2Component implements OnInit {
 
   ngOnInit() {
     console.log(
-      'Paquetes al inicializar oninit: ' +
-        JSON.stringify(this.estollegadelpadre)
+      'Paquetes al afterviewchequed : ' +
+        JSON.stringify(this.PaqueteCantPersonas)
+    );
+  }
+
+  doCheck() {}
+
+  ngAfterViewChecked() {}
+
+  ngAfterContentChecked() {
+    console.log(
+      'Paquetes al afterviewchequed : ' +
+        JSON.stringify(this.PaqueteCantPersonas)
     );
   }
 }
