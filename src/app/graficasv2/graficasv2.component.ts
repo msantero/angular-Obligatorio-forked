@@ -65,7 +65,7 @@ export class Graficasv2Component implements OnInit {
         text: 'Gráfica de Destinos',
       },
       xaxis: {
-        categories: this.prueba,
+        categories: ['pepe', 'luis'],
         //categories: this.paquetesnombre,
       },
     };
