@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header">
       <tr>
-        <th scope="col">Gráfica de precios (promedio) por destino:</th>
+        <th scope="col">Gráfica de Destinos con cantidad personas:</th>
       </tr>
     </div>
     <tbody>
@@ -11,6 +11,25 @@
         [chart]="chartOptions.chart"
         [xaxis]="chartOptions.xaxis"
         [title]="chartOptions.title"
+      ></apx-chart>
+    </tbody>
+    <div class="card-body"></div>
+  </div>
+</div>
+
+<div class="col-lg-4 col-md-6 mb-4">
+  <div class="card">
+    <div class="card-header">
+      <tr>
+        <th scope="col">Gráfica de precios (promedio) por destino:</th>
+      </tr>
+    </div>
+    <tbody>
+      <apx-chart
+        [series]="chartOptions2.series"
+        [chart]="chartOptions2.chart"
+        [xaxis]="chartOptions2.xaxis"
+        [title]="chartOptions2.title"
       ></apx-chart>
     </tbody>
     <div class="card-body"></div>
