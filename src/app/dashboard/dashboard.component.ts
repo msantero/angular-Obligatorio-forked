@@ -9,8 +9,6 @@ import { UserService } from '../user.service';
 import { PaqueteService } from '../paquetes.service';
 import { VentaService } from '../ventas.service';
 
-import { Graficasv2Component } from '../graficasv2/graficasv2.component';
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -33,8 +31,6 @@ export class DashboardComponent implements OnInit {
 
   // @ViewChild('datosDesdeElPadre', { static: false })
   // datosDesdeElPadre: Graficasv2Component;
-
-  prueba: string[] = [];
 
   venderGroup: FormGroup;
   constructor(
@@ -85,24 +81,23 @@ export class DashboardComponent implements OnInit {
     console.log('Obtengo todas las ventas...');
     this.ventaService
       .getVentas(this.userService.getApiKey(), idVendedor)
-      .subscribe(
-        (ventas) => {
-          this.ventaService.setVentas(<VentaResponse[]>ventas);
-          this.ventas = this.ventaService.ventas;
-          //cargo datos del dashboard
-          this.obtener_PaquetesyVentas_Vendedor(this.ventas, this.paquetes);
+      .subscribe((ventas) => {
+        this.ventaService.setVentas(<VentaResponse[]>ventas);
+        this.ventas = this.ventaService.ventas;
+        //cargo datos del dashboard
+        this.obtener_PaquetesyVentas_Vendedor(this.ventas, this.paquetes);
 
-          this.prueba = ['221', '233'];
-          // this.datosDesdeElPadre.estollegadelpadre = this.Paquetes_Vendedor;
-          //this.cantidad_paquetes(this.Paquetes_Vendedor);
+        // this.datosDesdeElPadre.estollegadelpadre = this.Paquetes_Vendedor;
 
-          this.obtener_personas_destino(this.paquetes, this.ventas);
-        },
+        //this.cantidad_paquetes(this.Paquetes_Vendedor);
+
+        this.obtener_personas_destino(this.paquetes, this.ventas);
+
         ({ error: { mensaje } }) => {
           this.msg = mensaje;
           console.log('Mensaje de error al obtener paquetes: ' + this.msg);
-        }
-      );
+        };
+      });
   }
 
   vender() {
@@ -253,7 +248,6 @@ export class DashboardComponent implements OnInit {
     if (!data) return {};
     if (typeof data === 'object') return data;
     if (typeof data === 'string') return JSON.parse(data);
-
     return {};
   }
 
