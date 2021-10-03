@@ -14,6 +14,7 @@ import { UsuarioAlertsComponent } from './usuario-alerts/usuario-alerts.componen
 import { HttpClientModule } from '@angular/common/http';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { Graficasv2Component } from './graficasv2/graficasv2.component';
+import { Graficasv2promComponent } from './graficasv2prom/graficasv2prom.component';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { Graficasv2Component } from './graficasv2/graficasv2.component';
     DashboardComponent,
     UsuarioAlertsComponent,
     Graficasv2Component,
+    Graficasv2promComponent,
   ],
   bootstrap: [AppComponent],
 })
