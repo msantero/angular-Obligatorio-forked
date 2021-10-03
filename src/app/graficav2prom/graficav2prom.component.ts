@@ -29,7 +29,7 @@ export type ChartOptions = {
   templateUrl: './graficav2prom.component.html',
   styleUrls: ['./graficav2prom.component.css'],
 })
-export class Graficasv2promComponent implements OnInit {
+export class Graficav2promComponent implements OnInit {
   @Input() paquetes!: Paquete[];
 
   @ViewChild('chart') chart!: ChartComponent;

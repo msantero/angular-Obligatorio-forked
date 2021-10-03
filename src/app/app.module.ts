@@ -14,7 +14,7 @@ import { UsuarioAlertsComponent } from './usuario-alerts/usuario-alerts.componen
 import { HttpClientModule } from '@angular/common/http';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { Graficasv2Component } from './graficasv2/graficasv2.component';
-import { Graficasv2promComponent } from './graficasv2prom/graficasv2prom.component';
+import { Graficav2promComponent } from './graficav2prom/graficav2prom.component';
 
 @NgModule({
   imports: [
@@ -22,7 +22,6 @@ import { Graficasv2promComponent } from './graficasv2prom/graficasv2prom.compone
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    //Graficasv2Component,
     NgApexchartsModule,
     RouterModule.forRoot([
       { path: '', component: LoginComponent },
@@ -42,7 +41,7 @@ import { Graficasv2promComponent } from './graficasv2prom/graficasv2prom.compone
     DashboardComponent,
     UsuarioAlertsComponent,
     Graficasv2Component,
-    Graficasv2promComponent,
+    Graficav2promComponent,
   ],
   bootstrap: [AppComponent],
 })
