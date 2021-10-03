@@ -50,9 +50,27 @@ export class Graficav2promComponent implements OnInit {
   }
 
   generoGraficaPromedioPaquete(paquetes: Paquete[]) {
-    this.paquetesnombreprom = paquetes.map((p) => p.nombre);
-    this.paquetepromedio = paquetes.map(
-      (p) => (p.precio_mayor + p.precio_menor) / 2
+    this.paquetesnombreprom = paquetes.map(function (obj) {
+      if (!obj.nombre) {
+        return '';
+      } else {
+        return obj.nombre;
+      }
+    });
+
+    this.paquetepromedio = paquetes.map(function (obj) {
+      if (!obj.precio_mayor) {
+        return 0;
+      } else {
+        return (obj.precio_mayor + obj!.precio_menor) / 2;
+      }
+    });
+
+    console.log(
+      'paquetesnombre: ' +
+        this.paquetesnombreprom +
+        ' paquetes cant: ' +
+        this.paquetepromedio
     );
 
     //grafica
@@ -61,7 +79,7 @@ export class Graficav2promComponent implements OnInit {
         {
           name: 'Promedio',
           //data: this.PaqueteCantPersonas,
-          data: this.paquetesnombreprom,
+          data: this.paquetepromedio,
         },
       ],
       chart: {
@@ -73,7 +91,7 @@ export class Graficav2promComponent implements OnInit {
       },
       xaxis: {
         //categories: ['pepe', 'luis'],
-        categories: this.paquetepromedio,
+        categories: this.paquetesnombreprom,
       },
     };
   }
