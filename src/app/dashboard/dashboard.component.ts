@@ -90,7 +90,7 @@ export class DashboardComponent implements OnInit {
         // this.datosDesdeElPadre.estollegadelpadre = this.Paquetes_Vendedor;
 
         //this.cantidad_paquetes(this.Paquetes_Vendedor);
-
+        this.cantPaquetesPersonas = this.Paquetes_Vendedor.length;
         this.obtener_personas_destino(this.paquetes, this.ventas);
 
         ({ error: { mensaje } }) => {

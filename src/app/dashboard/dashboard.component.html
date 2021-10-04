@@ -105,22 +105,22 @@
     <th scope="col" id="titulo2">Lista de paquetes Vendidos:</th>
   </tr>
   <tr>
-    <th scope="col">Cliente</th>
-    <th scope="col">Paquete</th>
-    <th scope="col">Cant. mayores</th>
-    <th scope="col">Cant. menores</th>
-    <th scope="col">Precio</th>
+    <th scope="col" id="titulo1">Cliente</th>
+    <th scope="col" id="titulo1">Paquete</th>
+    <th scope="col" id="titulo1">Cant. mayores</th>
+    <th scope="col" id="titulo1">Cant. menores</th>
+    <th scope="col" id="titulo1">Precio</th>
   </tr>
   <tbody>
-    <ul>
-      <li *ngFor="let item of Paquetes_Vendedor">
+    <ng-container *ngFor="let item of Paquetes_Vendedor">
+      <tr>
         <td>{{ item.nombreCliente }}</td>
         <td>{{ item.nombrePaquete }}</td>
         <td>{{ item.cantidad_mayores }}</td>
         <td>{{ item.cantidad_menores }}</td>
         <td>{{ item.precioPaquete }}</td>
-      </li>
-    </ul>
+      </tr>
+    </ng-container>
   </tbody>
   <br />
 
@@ -143,8 +143,8 @@
         <th scope="col" id="titulo2">Cantidad de personas por destino:</th>
       </tr>
       <tr>
-        <th scope="col">Destinos</th>
-        <th scope="col">Cant. personas</th>
+        <th scope="col" id="titulo1">Destinos</th>
+        <th scope="col" id="titulo1">Cant. personas</th>
       </tr>
     </thead>
     <tbody>
@@ -165,17 +165,17 @@
         <th scope="col" id="titulo2">Destinos TOP:</th>
       </tr>
       <tr>
-        <th scope="col">Destinos</th>
-        <th scope="col">Cant. ventas</th>
+        <th scope="col" id="titulo1">Destinos</th>
+        <th scope="col" id="titulo1">Cant. ventas</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pcantv of PaqueteCantPersonas">
-        <p *ngIf="pcantv.cantidad_ventas > 3">
+      <ng-container *ngFor="let pcantv of PaqueteCantPersonas">
+        <tr *ngIf="pcantv.cantidad_ventas > 3">
           <td>{{ pcantv.nombre }}</td>
           <td>{{ pcantv.cantidad_ventas }}</td>
-        </p>
-      </tr>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 
