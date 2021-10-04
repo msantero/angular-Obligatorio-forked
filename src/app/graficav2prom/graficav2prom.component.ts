@@ -51,7 +51,7 @@ export class Graficav2promComponent implements OnInit {
 
   generoGraficaPromedioPaquete(paquetes: Paquete[]) {
     this.paquetesnombreprom = paquetes.map(function (obj) {
-      if (!obj.nombre) {
+      if (obj.nombre === 'Choose one') {
         return '';
       } else {
         return obj.nombre;
@@ -65,6 +65,10 @@ export class Graficav2promComponent implements OnInit {
         return (obj.precio_mayor + obj!.precio_menor) / 2;
       }
     });
+
+    //borro el primero que es el choose
+    this.paquetesnombreprom.splice(0, 1);
+    this.paquetepromedio.splice(0, 1);
 
     console.log(
       'paquetesnombre: ' +

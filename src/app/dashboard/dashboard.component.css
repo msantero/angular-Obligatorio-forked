@@ -8,20 +8,27 @@ body {
 
 label {
   font-family: 'Overpass', sans-serif;
-  font-size: 100%;
+  font-size: 58px;
   color: #e3ebf0f6;
 }
 
 th {
   font-family: 'Overpass', sans-serif;
-  font-size: 100%;
+  font-size: 13px;
   color: #e3ebf0f6;
+  border: 5px solid rgb(140, 145, 231);
+  border-radius: 5px;
 }
 
 #titulo {
   font-family: 'Overpass', sans-serif;
   font-size: 100%;
   color: #e3ebf0f6;
+  border: 5px solid rgb(154, 157, 190);
+  border-radius: 7px;
+  width: 380px;
+  padding: 16px;
+  margin: center;
 }
 
 form {
