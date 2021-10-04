@@ -17,6 +17,13 @@ th {
   font-size: 100%;
   color: #e3ebf0f6;
 }
+
+#titulo {
+  font-family: 'Overpass', sans-serif;
+  font-size: 100%;
+  color: #e3ebf0f6;
+}
+
 form {
   width: 380px;
   padding: 16px;

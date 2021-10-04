@@ -2,7 +2,7 @@
   <br />
   <br />
 
-  <p class="titulo2">Vendedor: {{ nombre_vendedor }}</p>
+  <p class="titulo">Vendedor: {{ nombre_vendedor }}</p>
 
   <form [formGroup]="venderGroup" (ngSubmit)="vender()">
     <label>Cliente:</label>
@@ -192,6 +192,8 @@
   <app-graficasv2 [PaqueteCantPersonas]="PaqueteCantPersonas">
     ></app-graficasv2
   >
+  <br />
+  <br />
 
   <!--#datosDesdeElPadre -->
   <app-graficav2prom [paquetes]="paquetes">> ></app-graficav2prom>
