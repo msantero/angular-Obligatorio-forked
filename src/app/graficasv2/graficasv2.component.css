@@ -1,9 +1,13 @@
 body {
   font-family: 'Overpass', sans-serif;
   font-weight: normal;
-  font-size: 100%;
+  font-size: 50%;
   color: #bbe1fa;
 
   margin: 0;
-  background-color: #77a5c4;
+  width: 420px;
+  padding: 16px;
+  border-radius: 10px;
+
+  background-color: rgb(140, 145, 231);
 }
