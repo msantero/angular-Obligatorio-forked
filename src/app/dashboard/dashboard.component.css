@@ -73,15 +73,18 @@ th {
 tbody tr:nth-child(odd) {
   color: #13143b;
   background-color: #a9adc0;
+  text-align: center;
 }
 
 tbody tr:nth-child(even) {
   color: #13143b;
   background-color: #cdced3;
+  text-align: center;
 }
 
 tbody tr {
   background-image: url(noise.png);
+  text-align: center;
 }
 
 form {
