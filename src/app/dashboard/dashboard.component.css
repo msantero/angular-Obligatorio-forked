@@ -15,21 +15,45 @@ label {
 th {
   font-family: 'Overpass', sans-serif;
   font-size: 13px;
-  color: #e3ebf0f6;
-  border: 5px solid rgb(140, 145, 231);
+  color: #f9fafaf6;
+  border: 4px solid rgb(149, 149, 189);
   border-radius: 5px;
 }
 
 #titulo {
   font-family: 'Overpass', sans-serif;
-  font-size: 100%;
-  color: #e3ebf0f6;
-  border: 5px solid rgb(154, 157, 190);
+  font-size: 18px;
+  color: #abc5d4f6;
+  border: 5px solid rgb(110, 115, 172);
   border-radius: 7px;
   width: 380px;
   padding: 16px;
   margin: center;
 }
+#titulo2 {
+  font-family: sans-serif;
+  font-size: 13px;
+  background-color: rgb(89, 95, 204);;
+  color: #fffffff6;
+  border: 3px solid rgb(140, 140, 190);
+  border-radius: 5px;
+  width: 300px;
+  padding: 5px;
+  margin: center;
+}
+tbody tr:nth-child(odd) {
+  background-color: #ff33cc;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #e495e4;
+}
+
+tbody tr {
+  background-image: url(noise.png);
+}
+
+
 
 form {
   width: 380px;
