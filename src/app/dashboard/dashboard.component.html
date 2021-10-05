@@ -92,7 +92,7 @@
     <button type="submit" title="Vender Paquete" name="Vender">
       Vender paquete
     </button>
-    <div class="inferior" *ngIf="msg">
+    <div id="titulo4" *ngIf="msg">
       <label> {{ msg }}</label>
     </div>
   </form>
@@ -102,7 +102,7 @@
   <!--Grid column-->
 
   <tr>
-    <th scope="col" id="titulo2">Lista de paquetes Vendidos:</th>
+    <td id="titulo2" colspan="5">Lista de paquetes Vendidos</td>
   </tr>
   <tr>
     <th scope="col" id="titulo1">Cliente</th>
@@ -140,7 +140,7 @@
   >
     <thead class="thead-dark">
       <tr>
-        <th scope="col" id="titulo2">Cantidad de personas por destino:</th>
+        <td id="titulo2" colspan="2">Cantidad de personas por destino</td>
       </tr>
       <tr>
         <th scope="col" id="titulo1">Destinos</th>
@@ -162,7 +162,7 @@
   >
     <thead class="thead-dark">
       <tr>
-        <th scope="col" id="titulo2">Destinos TOP:</th>
+        <td id="titulo2" colspan="2">Destinos TOP</td>
       </tr>
       <tr>
         <th scope="col" id="titulo1">Destinos</th>
@@ -199,6 +199,8 @@
       </tr>
     </tbody>
   </table>
+
+  <br />
 
   <!--#datosDesdeElPadre -->
   <app-graficasv2 [PaqueteCantPersonas]="PaqueteCantPersonas">

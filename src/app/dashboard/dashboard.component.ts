@@ -120,7 +120,7 @@ export class DashboardComponent implements OnInit {
         this.cant;
     } else if (paqueteAvender?.cliente == '') {
       this.msg = 'Debe ingresar cliente' + paqueteAvender?.cliente;
-    } else if (!this?.paquete) {
+    } else if (!this?.paquete || this?.paquete.id === 0) {
       this.msg = 'Debe seleccionar un paquete';
     } else {
       this.msg = 'Vendiendo...';
@@ -146,7 +146,8 @@ export class DashboardComponent implements OnInit {
             this.ventaService.setVenta(<Venta>vent);
             //this.ventaService.user.usuario = usuario
             this.msg =
-              'Venta ingresada con id: ' + this.ventaService.getIdVenta();
+              'Venta ingresada -  id de venta: ' +
+              this.ventaService.getIdVenta();
           },
           ({ error: { mensaje } }) => {
             this.msg = mensaje;
@@ -155,6 +156,11 @@ export class DashboardComponent implements OnInit {
         );
 
       this.obtener_ventas(this.userService.getUserId());
+
+      paqueteAvender.adultos = 0;
+      paqueteAvender.ninos = 0;
+      paqueteAvender.cliente = '';
+      paqueteAvender.paqueteId = 0;
     }
 
     console.log(
