@@ -161,6 +161,7 @@ export class DashboardComponent implements OnInit {
       paqueteAvender.ninos = 0;
       paqueteAvender.cliente = '';
       paqueteAvender.paqueteId = 0;
+      this.venderGroup.reset();
     }
 
     console.log(
